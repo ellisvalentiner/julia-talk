@@ -1,0 +1,54 @@
+---
+title: Database Connections, DataFrames, and Plotting Stock Market Data
+author: Ellis Valentiner
+date: July 20th, 2017
+---
+
+# Introduction
+
+This is a report written using Weave and Julia. Weave is a scientific report generator/literate programming tool for Julia. It's _a lot_ like knitr and R Markdown (and kinda like Jupyter/IPython notebooks).
+
+In this report, I'm going to use several packages and so I load them at the top.
+
+```julia
+using DataFrames
+using ODBC
+using Plots
+```
+
+# Getting the data
+
+The first the we need to do is get our data into Julia. For this example, I setup a Postgres database hosted on RDS with finance data.
+
+The ODBC package provides functions for establish a connection to database connections.
+
+This function constructions a DSN from a pre-defined ODBC DSN in my `~/.odbc.ini`.
+
+```julia
+dsn = ODBC.DSN("Finance")
+```
+
+Then we can query the database.
+
+```julia
+df = ODBC.query(dsn, "SELECT * FROM \"SPY\";")
+print(df)
+```
+
+# Plotting
+
+There are several different plotting packages -- the most popular is Plots.jl.
+
+Plots.jl gives high-level plotting functions that can use different backends (e.g. PyPlot, GR, Plotly, Gadfly).
+
+```{julia; results="hidden"}
+x = df[:Date] |>
+  x->convert(Array, x) |>
+  x->map(_x->Date(string(_x)), x)
+y = convert(Array, df[:Close])
+
+p = plot(x=x, y=y, Geom.line)
+draw(SVG("examples/plot.svg", 9inch, 6inch), p)
+```
+
+![](plot.svg)

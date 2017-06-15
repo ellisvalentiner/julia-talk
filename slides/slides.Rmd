@@ -1,0 +1,120 @@
+---
+title: "Machine Learning with Julia"
+author: "Ellis Valentiner"
+date: "July 26th, 2017"
+output:
+  xaringan::moon_reader:
+    css: ["default", "style.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+---
+
+```{r Setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+background-image: url(https://rawgit.com/JuliaLang/julialang.github.com/master/_includes/logo.svg)
+
+???
+
+Image credit: [Julia](https://github.com/JuliaLang/julialang.github.com/tree/master/images)
+
+---
+class: center, middle
+
+# Who The F@#k Is This Guy?
+
+---
+class: bottom, right, aboutme
+background-image: url(assets/IMG_6498.png)
+background-position: center
+background-repeat: no-repeat
+background-size: contain
+
+# @ellisvalentiner
+
+# Data Scientist @Powerley
+
+---
+class: center, middle, bluetextslide
+background-color: #454A54
+
+# Why Julia?
+
+## _(Do we really need another language?)_
+
+???
+
+Multiple dispatch
+
+Dynamic type system
+
+Good performance, approaching that of statically-compiled languages like C
+
+Built-in package manager
+
+Lisp-like macros and other metaprogramming facilities
+
+Call Python, R, or C functions directly
+
+Powerful shell-like capabilities for managing other processes
+
+Designed for parallelism and distributed computation
+
+Coroutines: lightweight “green” threading
+
+User-defined types are as fast and compact as built-ins
+
+Automatic generation of efficient, specialized code for different argument types
+
+Elegant and extensible conversions and promotions for numeric and other types
+
+Efficient support for Unicode, including but not limited to UTF-8
+
+MIT licensed: free and open source
+
+---
+class: center, middle, redslide
+
+# shut up and show me code already!
+
+---
+class: center, middle
+
+# Benchmarks
+
+https://modelingguru.nasa.gov/docs/DOC-2625
+
+---
+class: center, middle
+background-color: #aa7dc0
+color: #ffffff
+
+# Why Julia **for data science**?
+
+Good frack'n question!
+
+---
+class: center, middle, inverse
+
+# Demo
+
+---
+class: center, middle
+
+# Should I really use Julia?
+
+Maybe?
+
+---
+class: center, middle
+
+# Thanks!
+
+
+
+Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
