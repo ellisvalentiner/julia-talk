@@ -98,16 +98,102 @@ reshape(1:16, 4, 4)
 Control flow
 =#
 
+# Compound expressions
+z = begin
+  x = 1
+  y = 2
+  x + y
+end
 
+z = (x = 1; y = 2; x + y)
 
+# Conditional expressions
+if x < y
+    println("x is less than y")
+elseif x > y
+    println("x is greater than y")
+else
+    println("x is equal to y")
+end
 
+x < y ? "ess than" : "not less than"
 
+# While loop
+i = 1
+while true
+  println(i)
+  if i >= 5
+    break
+  end
+  i += 1
+end
 
+# For loop
+for i = 1:10
+  if i % 3 != 0
+    continue
+  end
+  println(i)
+end
 
+# Try-catch
+f(x) =
+  try
+    sqrt(x)
+  catch
+    sqrt(complex(x, 0))
+end
 
+"""
+# Tasks aka Coroutines aka Green Threads
 
+Tasks are a control flow feature that allows computations to be suspended and
+resumed in a flexible manner.
+"""
 
+"""
+# Project Euler
 
+## Problem 9: Special Pythagorean triplet
+
+A Pythagorean triplet is a set of three natural numbers, a < b < c, for which,
+
+```math
+a^2 + b^2 = c^2
+```
+
+For example, 32 + 42 = 9 + 16 = 25 = 5^2.
+
+There exists exactly one Pythagorean triplet for which a + b + c = 1000.
+Find the product abc.
+"""
+
+"Generates Pythagorean triplets."
+function pythagorean_triplet_producer(ch::Channel)
+  m = 2
+  while true
+    for n = 1:(m-1)
+      a = 2*m*n
+      b = m^2 - n^2
+      c = m^2 + n^2
+      put!(ch, [a, b, c])
+    end
+    m += 1
+  end
+end
+
+"Solves the 9th Projec Euler programming problem."
+function pr009()
+  chnl = Channel(pythagorean_triplet_producer)
+  while true
+    a = take!(chnl)
+    if sum(a) == 1_000
+      return prod(a)
+    end
+  end
+end
+
+@printf "Time elapsed:\t%4.8f\n" @elapsed pr009()
 
 
 

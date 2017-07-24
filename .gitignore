@@ -7,3 +7,5 @@ deps/deps.jl
 slides/libs/*
 demo/.ipynb_checkpoints/
 slides/.Rhistory
+.env
+.odbc.ini
