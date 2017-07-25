@@ -1,19 +1,17 @@
 ---
-title: Database Connections, DataFrames, and Plotting Stock Market Data
+title: Database Connections, DataFrames, and Plotting with Stock Market Data
 author: Ellis Valentiner
 date: July 26th, 2017
 ---
 
 # Introduction
 
-This is a report written using Weave and Julia. Weave is a scientific report generator/literate programming tool for Julia. It's _a lot_ like knitr and R Markdown (and kinda like Jupyter/IPython notebooks).
+This is a report written using Weave and Julia. Weave is a scientific report generator/literate programming tool for Julia. It's *a lot* like knitr and R Markdown (and kinda like Jupyter/IPython notebooks).
 
 In this report, I'm going to use several packages and so I load them at the top.
 
 ```julia
-using DataFrames
-using ODBC
-using Gadfly
+using DataFrames, ODBC, Gadfly
 ```
 
 # Getting the data
@@ -22,7 +20,18 @@ The first the we need to do is get our data into Julia. For this example, I setu
 
 The ODBC package provides functions for establish a connection to database connections.
 
-This function constructions a DSN from a pre-defined ODBC DSN in my `~/.odbc.ini`.
+This function constructions a DSN from a pre-defined ODBC DSN in my `~/.odbc.ini`:
+
+```
+[Finance]
+Description	= AWS RDS PostgreSQL Instance
+Driver		= PostgreSQL Driver
+DataBase	= finance
+Servername	= **********.us-east-1.rds.amazonaws.com
+UserName	= ellis
+Password	= **********
+Port		= 5432
+```
 
 ```julia
 dsn = ODBC.DSN("Finance")
@@ -30,25 +39,49 @@ dsn = ODBC.DSN("Finance")
 
 Then we can query the database.
 
-```julia
+```{julia; line_width=120}
 df = ODBC.query(dsn, "SELECT * FROM \"SPY\";")
 print(df)
 ```
 
-# Plotting
-
-There are several different plotting packages -- the most popular is Plots.jl.
-
-Plots.jl gives high-level plotting functions that can use different backends (e.g. PyPlot, GR, Plotly, Gadfly).
-
-There is also an extension StatPlots.
-
-```julia
-x = Date.(string.(convert(Array, df[:Date])))
-y = Array(df[:Close])
-
-p = plot(x=x, y=y, Geom.line)
-draw(SVG("examples/plot.svg", 9inch, 6inch), p)
+```{julia; echo=false}
+# This chunk is evaluated but not included in the output
+column_names = df |>
+  names .|>
+  string
 ```
 
-![](examples/plot.svg)
+The dataframe has `j nrow(df)` rows and `j ncol(df)` columns: `j join(column_names, ", ")`
+
+```julia
+colwise(typeof, df)
+```
+
+# Data Manipulation
+
+```julia
+df[:Year] = df[:Date].values .|>
+  Dates.AbstractTime .|>
+  x->x.year
+
+by(df, :Year, x->first(x[:Close]))
+```
+
+# Plotting
+
+There are several different plotting packages -- the most popular is Plots.jl. Plots.jl gives high-level plotting functions that can use different backends (e.g. PyPlot, GR, Plotly). However Gadfly.jl is most similar to ggplot2 in R.
+
+```{julia; fig_width=8}
+dark_panel = Theme(
+    panel_fill="black",
+    default_color="orange"
+)
+
+Gadfly.push_theme(dark_panel)
+p = plot(x=Date.(string.(convert(Array, df[:Date]))),
+         y=Array(df[:Close]),
+         Geom.line,
+         Guide.title("\$SPY Closing Price"),
+         Guide.xlabel("Date"),
+         Guide.ylabel("Closing Price"))
+```

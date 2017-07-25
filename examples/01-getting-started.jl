@@ -73,6 +73,10 @@ f(3, 4)
 f(x, y) = x + y
 f(4, 5)
 
+
+foo(x::Int) = println("$x is an integer")
+foo(x::String) = println("$x is a string")
+
 #=
 Arrays
 =#
