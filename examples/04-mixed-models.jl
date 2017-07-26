@@ -12,6 +12,8 @@ by 2,972 students on a total of 1,128 instructors.
 """
 InstEval = dataset("lme4", "InstEval")
 
+DataFrames.printtable(InstEval)
+
 # Define a formula
 f = @formula(Y ~ 1 + Dept*Service + (1 | S) + (1 | D))
 typeof(f)

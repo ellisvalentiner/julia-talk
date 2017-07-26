@@ -30,20 +30,27 @@ Image credit: [Julia](https://github.com/JuliaLang/julialang.github.com/tree/mas
 ---
 class: center, middle
 
+![](https://rawgit.com/JuliaLang/julialang.github.com/master/_includes/logo.svg)
+
+Walk like Python. Run like C.
+
+---
+class: center, middle
+
 # Who The F@#k Is This Guy?
 
 ---
 class: top, right, aboutme
-background-image: url(assets/IMG_6498.png)
+background-image: url(http://www.powerley.com/media/1183/office.png)
 background-position: center
 background-repeat: no-repeat
 background-size: cover
 
-# @ellisvalentiner
+# <span>@ellisvalentiner</span>
 
-## Data Scientist @Powerley
+## <span>Data Scientist @Powerley</span>
 
-## Organizer @AnnArborRUserGroup
+## <span>Organizer @AnnArborRUserGroup</span>
 
 ---
 class: center, middle, whyjulia
@@ -83,6 +90,7 @@ Efficient support for Unicode, including but not limited to UTF-8
 MIT licensed: free and open source
 
 ---
+class: features
 
 # Features
 
@@ -96,15 +104,15 @@ MIT licensed: free and open source
 
 --
 
-Built-in package manager
+Built-in **package manager**
 
 --
 
-Lisp-like macros and other metaprogramming facilities
+Lisp-like **macros** and other metaprogramming facilities
 
 --
 
-Call Python (PyCall), C, and R (RCall)
+Call Python, C, and R
 
 --
 
@@ -112,7 +120,7 @@ Call Python (PyCall), C, and R (RCall)
 
 --
 
-High performance JIT compiler
+High performance **JIT compiler**
 
 ---
 class: center, middle, inverse, shutupslide
@@ -124,6 +132,15 @@ layout: false
 class: center, middle, inverse
 
 # Demo
+
+---
+class: center, middle, inverse
+
+# Other things to know
+
+---
+
+[Documentation](https://docs.julialang.org/en/stable/)
 
 ---
 class: center, middle
@@ -145,10 +162,13 @@ background-position: center
 background-repeat: no-repeat
 background-size: cover
 
-# @ellisvalentiner
+# <span>@ellisvalentiner</span>
 
-## <i class="fa fa-github" aria-hidden="true"></i> github
+--
+## <span><i class="fa fa-github" aria-hidden="true"></i> github</span>
 
-## <i class="fa fa-twitter" aria-hidden="true"></i> twitter
+--
+## <span><i class="fa fa-twitter" aria-hidden="true"></i> twitter</span>
 
-## <i class="fa fa-google" aria-hidden="true"></i> gmail
+--
+## <span><i class="fa fa-google" aria-hidden="true"></i> gmail</span>

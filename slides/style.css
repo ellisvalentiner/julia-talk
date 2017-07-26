@@ -18,6 +18,10 @@ p {
     -webkit-transform: rotate(-2deg);
 }
 
+.aboutme h1 span {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 .aboutme h2 {
     margin: 0;
     letter-spacing: -1px;
@@ -25,6 +29,10 @@ p {
     color: #5DB5AE;
     transform: rotate(1deg);
     -webkit-transform: rotate(1deg);
+}
+
+.aboutme h2 span {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .aboutme:before {
@@ -59,6 +67,10 @@ p {
   color: #5DB5AE;
   transform: rotate(-1.5deg);
   -webkit-transform: rotate(-1.5deg);
+}
+
+.features b, strong {
+  color: #5DB5AE;
 }
 
 .shutup h1 {

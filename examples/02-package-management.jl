@@ -16,7 +16,7 @@ Pkg.add("Distributions")
 
 #=
 Pkg.add first adds "Distributions" to your
-  ~/.julia/v0.5/REQUIRE file
+  ~/.julia/v0.6/REQUIRE file
 and then runs Pkg.resolve() to determine the
 best set of packages
 =#

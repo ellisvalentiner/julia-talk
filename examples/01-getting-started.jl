@@ -82,6 +82,7 @@ Arrays
 =#
 [1, 2, 3, 4, 5]
 collect(1:5)
+[i for i in 1:5]
 
 letters = collect('a':'z')
 letters[1]
@@ -97,6 +98,8 @@ Array([1 3 4])
 eye(5)
 [(i,j) for i=1:3 for j=1:i]
 reshape(1:16, 4, 4)
+
+eye(Int, 10) .* collect(1:10:100)
 
 #=
 Control flow
