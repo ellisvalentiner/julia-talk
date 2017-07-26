@@ -1,29 +1,30 @@
 
-@import url('https://fonts.googleapis.com/css?family=Cabin');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
-.profile #hexagon {
-            position: relative;
-            display: inline-block;
-            width: 200px;
-            height: 200px;
-            overflow: hidden;
-            color: #fff;
-            -webkit-clip-path: polygon(50% 0%, 94% 25%, 94% 75%, 50% 100%, 6% 75%, 6% 25%);
-clip-path: polygon(50% 0%, 94% 25%, 94% 75%, 50% 100%, 6% 75%, 6% 25%);
-            text-align: center;
-        }
-
-.hexagon a {
-    cursor: -webkit-zoom-in; cursor: -moz-zoom-in;
+h1, h2, h3, p {
+  font-family: "Ubuntu";
 }
 
-.aboutme h1, h2 {
-  margin: 0;
-  letter-spacing: -1px;
-  font-size: 4em;
-  color: rgb(47, 255, 146);
-  transform: rotate(-2deg);
-  -webkit-transform: rotate(-2deg);
+p {
+  font-size: 1.5em;
+}
+
+.aboutme h1 {
+    margin: 0;
+    letter-spacing: -1px;
+    font-size: 4em;
+    color: #5DB5AE;
+    transform: rotate(-2deg);
+    -webkit-transform: rotate(-2deg);
+}
+
+.aboutme h2 {
+    margin: 0;
+    letter-spacing: -1px;
+    font-size: 2em;
+    color: #5DB5AE;
+    transform: rotate(1deg);
+    -webkit-transform: rotate(1deg);
 }
 
 .aboutme:before {
@@ -42,29 +43,38 @@ clip-path: polygon(50% 0%, 94% 25%, 94% 75%, 50% 100%, 6% 75%, 6% 25%);
     background-size: contain
 }
 
-.bluetextslide h1, h2, h3 {
+.whyjulia h1 {
   margin: 0;
   letter-spacing: -1px;
   font-size: 4em;
-  color: rgb(47, 146, 255);
+  color: #5DB5AE;
   transform: rotate(1deg);
   -webkit-transform: rotate(1deg);
 }
 
-.bluetextslide h2 {
+.whyjulia h2 {
   margin: 0;
   letter-spacing: -1px;
-  font-size: 3em;
-  color: rgb(47, 146, 255);
+  font-size: 2em;
+  color: #5DB5AE;
+  transform: rotate(-1.5deg);
+  -webkit-transform: rotate(-1.5deg);
+}
+
+.shutup h1 {
+  margin: 0;
+  letter-spacing: -1px;
+  font-size: 4em;
+  color: #477177;
   transform: rotate(1deg);
   -webkit-transform: rotate(1deg);
 }
 
-.redslide h1, h2, h3 {
+.shutup h2 {
   margin: 0;
   letter-spacing: -1px;
   font-size: 4em;
-  color: rgb(255, 47, 146);
-  transform: rotate(1deg);
-  -webkit-transform: rotate(1deg);
+  color: #477177;
+  transform: rotate(2deg);
+  -webkit-transform: rotate(2deg);
 }
