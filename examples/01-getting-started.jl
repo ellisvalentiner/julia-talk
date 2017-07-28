@@ -48,7 +48,7 @@ e
 π == pi
 
 # Functions that look like maths
-f(x) = x^2 + 2π
+f(x) = x^2 + 2x
 f(3)
 
 #=
@@ -59,7 +59,7 @@ typeof("x")
 Int('x')
 str = "oh hai wurld"
 str[1]
-str[4:12]
+str[4:5]
 str[end]
 
 #=
@@ -75,12 +75,15 @@ f(4, 5)
 
 
 foo(x::Int) = println("$x is an integer")
+
+@time foo(5)
+@time foo(π)
 foo(x::String) = println("$x is a string")
 
 #=
 Arrays
 =#
-[1, 2, 3, 4, 5]
+A = [1, 2, 3, 4, 5]
 collect(1:5)
 [i for i in 1:5]
 
@@ -123,7 +126,7 @@ else
     println("x is equal to y")
 end
 
-x < y ? "ess than" : "not less than"
+x < y ? "less than" : "not less than"
 
 # While loop
 i = 1

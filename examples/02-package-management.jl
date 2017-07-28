@@ -25,7 +25,7 @@ best set of packages
 Pkg.status()
 
 # Package directory
-Pkg.dir()
+Pkg.dir("Distributions")
 
 # Remove a requirement
 Pkg.rm("Distributions")
@@ -34,9 +34,9 @@ Pkg.rm("Distributions")
 Pkg.update()
 
 # Checkout, Pin, and Free
-Pkg.checkout("DataFrames", v"0.10.0")
-Pkg.pin("DataFrames", v"0.10.0")
-Pkg.free("DataFrames")
+Pkg.checkout("Distributions")
+Pkg.pin("Distributions")
+Pkg.free("Distributions")
 
 #=
 PkgDev for creating your own packages:
