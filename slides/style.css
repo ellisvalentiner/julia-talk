@@ -9,6 +9,10 @@ p {
   font-size: 1.5em;
 }
 
+.remark-container {
+    background: transparent !important;
+}
+
 .aboutme h1 {
     margin: 0;
     letter-spacing: -1px;
